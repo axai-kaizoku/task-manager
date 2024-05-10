@@ -52,7 +52,7 @@ export default function TaskToolbar() {
 		}
 
 		setError('');
-		// console.log(id, title, description, dueDate, status, priority);
+
 		const task = {
 			id,
 			title,
@@ -147,10 +147,9 @@ export default function TaskToolbar() {
 										placeholder="New feature added!"
 										className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
 										disabled>
-										<option value="Pending">Pending</option>
-										<option value="Todo">Todo</option>
-										<option value="In Progress">In Progress</option>
-										<option value="Cancelled">Cancelled</option>
+										<option value="pending">Pending</option>
+										<option value="in progress">In Progress</option>
+										<option value="completed">Completed</option>
 									</select>
 								</div>
 								<div>
@@ -166,9 +165,9 @@ export default function TaskToolbar() {
 										placeholder="New feature added!"
 										className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
 										required>
-										<option value="Low">Low</option>
-										<option value="Medium">Medium</option>
-										<option value="High">High</option>
+										<option value="low">Low</option>
+										<option value="medium">Medium</option>
+										<option value="high">High</option>
 									</select>
 								</div>
 								<div>

@@ -1,9 +1,7 @@
 import Task from './Task';
-import { useDispatch, useSelector } from 'react-redux';
-import tasks from '../data/tasks.json';
+import { useSelector } from 'react-redux';
 
 export default function TaskList() {
-	const dispatch = useDispatch();
 	const data = useSelector((state) => state.task.value);
 
 	return (
