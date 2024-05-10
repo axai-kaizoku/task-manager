@@ -1,8 +1,89 @@
 import Task from './Task';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import DropdownMenu from './ui/DropdownMenu';
+import { MenuItem } from '@headlessui/react';
+import { filterTasks } from '../redux/slices/taskSlice';
 
 export default function TaskList() {
 	const data = useSelector((state) => state.task.value);
+	const dispatch = useDispatch();
+
+	// Sorting
+	// Due Date sorting
+
+	const handleDueDateAsc = () => {
+		dispatch(
+			filterTasks(
+				[...data].sort((a, b) => {
+					return a.dueDate > b.dueDate ? 1 : -1;
+				}),
+			),
+		);
+	};
+
+	const handleDueDateDsc = () => {
+		dispatch(
+			filterTasks(
+				[...data].sort((a, b) => {
+					return a.dueDate < b.dueDate ? 1 : -1;
+				}),
+			),
+		);
+	};
+
+	// Status sorting
+
+	const handleStatusAsc = () => {
+		dispatch(
+			filterTasks(
+				[...data].sort((a, b) => {
+					return a.status < b.status ? 1 : -1;
+				}),
+			),
+		);
+	};
+
+	const handleStatusDsc = () => {
+		dispatch(
+			filterTasks(
+				[...data].sort((a, b) => {
+					return a.status > b.status ? 1 : -1;
+				}),
+			),
+		);
+	};
+
+	// Priority Sorting
+
+	const priorityValues = {
+		low: 0,
+		medium: 1,
+		high: 2,
+	};
+
+	const handlePriorityAsc = () => {
+		dispatch(
+			filterTasks(
+				[...data].sort((a, b) => {
+					return priorityValues[a.priority] > priorityValues[b.priority]
+						? 1
+						: -1;
+				}),
+			),
+		);
+	};
+
+	const handlePriorityDsc = () => {
+		dispatch(
+			filterTasks(
+				[...data].sort((a, b) => {
+					return priorityValues[a.priority] < priorityValues[b.priority]
+						? 1
+						: -1;
+				}),
+			),
+		);
+	};
 
 	return (
 		<>
@@ -25,13 +106,40 @@ export default function TaskList() {
 								Title & Description
 							</th>
 							<th className="h-12 w-32 px-4 text-left align-middle font-medium text-slate-700/70 [&:has([role=checkbox])]:pr-0">
-								Due Date
+								<DropdownMenu
+									position="bottom"
+									title="Due Date">
+									<MenuItem>
+										<button onClick={handleDueDateAsc}>Asc</button>
+									</MenuItem>
+									<MenuItem>
+										<button onClick={handleDueDateDsc}>Dsc</button>
+									</MenuItem>
+								</DropdownMenu>
 							</th>
 							<th className="h-12 w-32 px-4 text-left align-middle font-medium text-slate-700/70 [&:has([role=checkbox])]:pr-0">
-								Status
+								<DropdownMenu
+									position="bottom"
+									title="Status">
+									<MenuItem>
+										<button onClick={handleStatusAsc}>Asc</button>
+									</MenuItem>
+									<MenuItem>
+										<button onClick={handleStatusDsc}>Dsc</button>
+									</MenuItem>
+								</DropdownMenu>
 							</th>
 							<th className="h-12 px-4 text-left align-middle font-medium text-slate-700/70 [&:has([role=checkbox])]:pr-0">
-								Priority
+								<DropdownMenu
+									position="bottom"
+									title="Priority">
+									<MenuItem>
+										<button onClick={handlePriorityAsc}>Asc</button>
+									</MenuItem>
+									<MenuItem>
+										<button onClick={handlePriorityDsc}>Dsc</button>
+									</MenuItem>
+								</DropdownMenu>
 							</th>
 							<th className="h-12 w-4 px-4 text-left align-middle font-medium text-slate-700/70 [&:has([role=checkbox])]:pr-0"></th>
 						</tr>

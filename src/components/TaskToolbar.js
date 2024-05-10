@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTask } from '../redux/slices/taskSlice';
-import Modal from './Modal';
+import Modal from './ui/Modal';
 import { generateNumericUUID } from '../utils';
 
 export default function TaskToolbar() {
