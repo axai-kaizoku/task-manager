@@ -1,6 +1,6 @@
-# Task Manager
+# Task Manager.
 
-A Basic task managing app, in which we can create, update, delete tasks. We can also sort tasks with fields. Used React Redux, global state management tool and modern UI/UX tools.
+A Basic task managing app, in which we can create, update, delete tasks and data persists in browser's local storage. We can also sort tasks based on fields, priority, due-date and status. Used React Redux, global state management tool and modern UI/UX tools.
 
 ## Technologies
 
@@ -14,7 +14,23 @@ A Basic task managing app, in which we can create, update, delete tasks. We can 
 
 Home
 
-![Home](/demo-images/book-my-space-main.png)
+![Home](/task-manager-main.png)
+
+Add New Task
+
+![Add New Task](/task-manager-add-new-task.png)
+
+Edit Task
+
+![Edit Task](/task-manager-edit-task.png)
+
+Delete Task
+
+![Delete Task](/task-manager-delete-task.png)
+
+Sorting Tasks
+
+![Sorting Tasks](/task-manager-sorting.png)
 
 ## Run Locally
 
