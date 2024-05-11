@@ -16,6 +16,8 @@ import {
 } from '../redux/slices/taskSlice';
 import MenuIcon from './icons/menu';
 import DropdownMenu from './ui/DropdownMenu';
+import EditIcon from './icons/edit';
+import TrashIcon from './icons/trash';
 
 export default function Task({ task }) {
 	const { id, title, description, dueDate, status, priority } = task;
@@ -138,23 +140,25 @@ export default function Task({ task }) {
 				<td className="p-4 align-middle [&:has([role=checkbox])]:pr-0">
 					<DropdownMenu
 						position="bottom end"
-						title={<MenuIcon />}>
-						<MenuItem>
+						icon={<MenuIcon />}>
+						<MenuItem className="flex rounded-md data-[focus]:bg-gray-400/10 justify-center">
 							<button
 								onClick={() => {
 									setEditModal(true);
 									getTask(id);
-								}}>
-								Edit
+								}}
+								className="flex items-center  gap-1.5">
+								<EditIcon /> Edit
 							</button>
 						</MenuItem>
-						<MenuItem>
+						<MenuItem className="flex rounded-md data-[focus]:bg-gray-400/10 justify-center">
 							<button
 								onClick={() => {
 									setDeleteModal(true);
 									getTask(id);
-								}}>
-								Delete
+								}}
+								className="flex items-center gap-1.5">
+								<TrashIcon /> Delete
 							</button>
 						</MenuItem>
 					</DropdownMenu>
