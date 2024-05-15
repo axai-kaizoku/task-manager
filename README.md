@@ -1,4 +1,4 @@
-# Task Manager.
+# [Task Manager.](https://task-manager-zhd9.onrender.com/)
 
 A Basic task managing app, in which we can create, update, delete tasks and data persists in browser's local storage. We can also sort tasks based on fields, priority, due-date and status. Used React Redux, global state management tool and modern UI/UX tools.
 
@@ -31,6 +31,10 @@ Delete Task
 Sorting Tasks
 
 ![Sorting Tasks](/task-manager-sorting.png)
+
+## Deployed Link
+
+[task-manager-zhd9.onrender.com](https://task-manager-zhd9.onrender.com/)
 
 ## Run Locally
 

@@ -1,11 +1,5 @@
 import { formatDate } from '../utils';
-import {
-	Menu,
-	MenuButton,
-	MenuItem,
-	MenuItems,
-	Transition,
-} from '@headlessui/react';
+import { MenuItem } from '@headlessui/react';
 import Modal from './ui/Modal';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
